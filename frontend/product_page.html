@@ -184,7 +184,7 @@
             );
 
             // Fetch products from products.json and display them
-            fetch('products.json')
+            fetch('http://localhost:5000/productlists')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok.');
@@ -192,6 +192,7 @@
                     return response.json();
                 })
                 .then(data => {
+                    console.log('Fetched products:', data);
                     window.products = data; // Store products globally for filtering
                     displayProducts(data); // Display all products initially
 
