@@ -192,7 +192,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log('Fetched products:', data);
+                    console.log('Fetched products:', data);//console log the data it
                     window.products = data; // Store products globally for filtering
                     displayProducts(data); // Display all products initially
 

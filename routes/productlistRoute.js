@@ -1,4 +1,4 @@
-// routes/userRoutes.js
+// routes/productlistRoutes.js
 const express = require('express');
 const router = express.Router();
 const productlistController = require('../controllers/productlistController');
