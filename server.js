@@ -7,6 +7,7 @@ const userRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productlistRoute');
 const ProductList = require('./models/productlistModel');
 const userDetailsRoutes = require('./routes/userDetailsRoutes');
+const cartRoutes = require('./routes/cartRoute');
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -49,6 +50,7 @@ app.get('/uploadproductlist', async (req, res) => {
 app.use('/users', userRoutes);
 app.use('/productlists', productRoutes);
 app.use('/api', userDetailsRoutes);
+app.use('/api', cartRoutes);
 // Define the port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
