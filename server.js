@@ -3,10 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const fs = require('fs'); // Import fs module
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productlistRoute');
 const ProductList = require('./models/productlistModel');
-
+const userDetailsRoutes = require('./routes/userDetailsRoutes');
+const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -48,7 +49,8 @@ app.get('/uploadproductlist', async (req, res) => {
 // Use user routes
 app.use('/users', userRoutes);
 app.use('/productlists', productRoutes);
-
+app.use('/api', userDetailsRoutes);
+app.use("/api/orders", orderRoutes);
 // Define the port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
